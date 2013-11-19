@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="SONY C6506 : Sony Mobile Open Source Android Device C6506" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>SONY C6506</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/steleman/device-sony-c6506">View on GitHub</a>
+
+          <h1 id="project_title">SONY C6506</h1>
+          <h2 id="project_tagline">Sony Mobile Open Source Android Device C6506</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/steleman/device-sony-c6506/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/steleman/device-sony-c6506/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="copyright-c-sony-mobile-communications-2013" class="anchor" href="#copyright-c-sony-mobile-communications-2013"><span class="octicon octicon-link"></span></a>Copyright (C) Sony Mobile Communications 2013</h1>
+
+<p>This is the Android device configuration for Xperia Z.</p>
+
+<p>To setup a tree and build images for the device do the following:</p>
+
+<p><code>repo init</code> as described by Google over at:
+<a href="http://source.android.com/source/downloading.html">http://source.android.com/source/downloading.html</a></p>
+
+<p>Put the following snippet in <code>.repo/local_manifests/c6603.xml</code></p>
+
+<div class="highlight highlight-xml"><pre><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;manifest&gt;</span>
+<span class="nt">&lt;remote</span>  <span class="na">name=</span><span class="s">"sony"</span> <span class="na">fetch=</span><span class="s">"git://github.com/sonyxperiadev/"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;remove-project</span> <span class="na">name=</span><span class="s">"platform/hardware/qcom/display"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;remove-project</span> <span class="na">name=</span><span class="s">"platform/hardware/qcom/keymaster"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;remove-project</span> <span class="na">name=</span><span class="s">"platform/hardware/qcom/media"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;remove-project</span> <span class="na">name=</span><span class="s">"platform/hardware/qcom/msm8960"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;remove-project</span> <span class="na">name=</span><span class="s">"platform/hardware/qcom/power"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;remove-project</span> <span class="na">name=</span><span class="s">"platform/hardware/qcom/sensors"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;remove-project</span> <span class="na">name=</span><span class="s">"platform/hardware/invensense"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;remove-project</span> <span class="na">name=</span><span class="s">"platform/hardware/akm"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;project</span> <span class="na">path=</span><span class="s">"device/sony/lagan"</span> <span class="na">name=</span><span class="s">"device-sony-lagan"</span> <span class="na">groups=</span><span class="s">"device"</span> <span class="na">remote=</span><span class="s">"sony"</span> <span class="na">revision=</span><span class="s">"master"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">path=</span><span class="s">"device/sony/c6603"</span> <span class="na">name=</span><span class="s">"device-sony-c6603"</span> <span class="na">groups=</span><span class="s">"device"</span> <span class="na">remote=</span><span class="s">"sony"</span> <span class="na">revision=</span><span class="s">"master"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">path=</span><span class="s">"vendor/sony/dash"</span> <span class="na">name=</span><span class="s">"DASH"</span> <span class="na">groups=</span><span class="s">"device"</span> <span class="na">revision=</span><span class="s">"master"</span> <span class="na">remote=</span><span class="s">"sony"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span>
+</pre></div>
+
+<p>Download the zip file with vendor binaries from:
+<a href="http://developer.sonymobile.com/knowledge-base/open-source/android-open-source-project-for-xperia-devices/">http://developer.sonymobile.com/knowledge-base/open-source/android-open-source-project-for-xperia-devices/</a></p>
+
+<p>In the root of your Android code tree unzip the <code>SW_binaries_for_Xperia_Z_Xperia_Tablet_Z_v3.zip</code>.</p>
+
+<p>You should now have directories named <code>vendor/sony/lagan</code> and <code>vendor/sony/c6603</code> in your tree.</p>
+
+<ul>
+<li><code>repo sync</code></li>
+<li><code>source ./build/envsetup.sh</code></li>
+<li><code>lunch full_c6603-userdebug</code></li>
+<li><code>make</code></li>
+</ul><p>To flash the images produced make sure your device is unlocked, as described on
+<a href="http://unlockbootloader.sonymobile.com/">http://unlockbootloader.sonymobile.com/</a></p>
+
+<p>Enter fastboot mode on the device by pressing volume up while inserting the USB
+cable or execute <code>adb reboot bootloader</code>.</p>
+
+<ul>
+<li><code>fastboot flash userdata out/target/product/c6603/userdata.img</code></li>
+<li><code>fastboot flashall</code></li>
+</ul><p>Reflashing userdata is not necessary every time, but incompatibilities with
+previous content might result in a device that doesn't boot. If this happens
+try to reflash just the userdata again.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">SONY C6506 maintained by <a href="https://github.com/steleman">steleman</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
