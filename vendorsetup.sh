@@ -20,6 +20,6 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo full_c6603-eng
-add_lunch_combo full_c6603-userdebug
-add_lunch_combo full_c6603-user
+add_lunch_combo full_c6506-eng
+add_lunch_combo full_c6506-userdebug
+add_lunch_combo full_c6506-user

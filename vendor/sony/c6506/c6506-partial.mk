@@ -1,4 +1,4 @@
-# Copyright 2013 The Android Open Source Project
+# Copyright (C) 2012 Sony Mobile Communication
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,10 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include device/sony/lagan/BoardConfig.mk
-
-TARGET_BOOTLOADER_BOARD_NAME := C6506
-
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2147483648
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 12828229120
-BOARD_CACHEIMAGE_PARTITION_SIZE := 576716800
+PRODUCT_PACKAGES += \
+    illumination_service \
+    libOmxVenc \
+    wlan
